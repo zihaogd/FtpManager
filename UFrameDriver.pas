@@ -191,6 +191,8 @@ type
     procedure miHistoryRemoveClick(Sender: TObject);
     procedure vstLocalHistoryKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure vstLocalHistoryChange(Sender: TBaseVirtualTree;
+      Node: PVirtualNode);
   private
     ControlPath : string;
     LocalPath, NetworkPath : string;
@@ -1401,6 +1403,12 @@ begin
   end;
 end;
 
+procedure TFrameDriver.vstLocalHistoryChange(Sender: TBaseVirtualTree;
+  Node: PVirtualNode);
+begin
+  miHistoryRemove.Visible := Sender.SelectedCount > 0;
+end;
+
 procedure TFrameDriver.vstLocalHistoryDblClick(Sender: TObject);
 var
   SelectNode : PVirtualNode;
@@ -1938,6 +1946,7 @@ begin
     IsVisible := IsSearchAll or NodeData.IsLocked or
                  ( Pos( FileName, LowerCase( string( NodeData.ShowName ) ) ) > 0 );
     vstNetwork.IsVisible[ SelectNode ] := IsVisible;
+    vstNetwork.Selected[ SelectNode ] := False;
     SelectNode := SelectNode.NextSibling;
   end;
 

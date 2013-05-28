@@ -293,7 +293,6 @@ var
   IniFile : TIniFile;
   ShareCount, i: Integer;
   SharePath : string;
-  IsHideApp : Boolean;
 begin
   IniFile := TIniFile.Create( MyAppData.getConfigPath );
 
@@ -324,7 +323,6 @@ begin
 
     // ÊÇ·ñÒþ²Ø´°¿Ú
   IsHideApp := IniFile.ReadBool( Ini_MainForm, Ini_MainFormHide, False );
-  IsHideApp := IsHideApp;
   miCloseHide.Checked := IsHideApp;
   miCloseExit.Checked := not IsHideApp;
   except

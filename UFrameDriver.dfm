@@ -256,6 +256,7 @@ object FrameDriver: TFrameDriver
         TabOrder = 0
         TreeOptions.PaintOptions = [toShowButtons, toShowDropmark, toShowTreeLines, toThemeAware, toUseBlendedImages]
         TreeOptions.SelectionOptions = [toFullRowSelect, toMultiSelect]
+        OnChange = vstLocalHistoryChange
         OnDblClick = vstLocalHistoryDblClick
         OnGetText = vstLocalHistoryGetText
         OnGetImageIndex = vstLocalHistoryGetImageIndex
@@ -1509,7 +1510,7 @@ object FrameDriver: TFrameDriver
     Left = 160
     Top = 88
     Bitmap = {
-      494C01010C003000840110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C003000900110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2066,6 +2067,7 @@ object FrameDriver: TFrameDriver
     object miHistoryRemove: TMenuItem
       Caption = #31227#38500
       ImageIndex = 12
+      Visible = False
       OnClick = miHistoryRemoveClick
     end
   end
